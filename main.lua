@@ -14,9 +14,12 @@ end
 function love.draw()
     love.graphics.setCanvas(gameCanvas)
         love.graphics.clear()
-        love.graphics.rectangle("line", 0, 0, 480, 360) --border
+        -- draw goes here -- 
       
         love.graphics.draw(saul, 0, 0)
+
+        -- draw neds here -- 
+        love.graphics.rectangle("line", 0, 0, 480, 360) --border
     love.graphics.setCanvas()
     love.graphics.draw(gameCanvas, 20, 20, 0, canvasScale, canvasScale)
 
