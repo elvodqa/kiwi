@@ -1,15 +1,17 @@
 
-local gameCanvas = love.graphics.newCanvas(480, 360)
-local uiCanvas = love.graphics.newCanvas(480*2, 360*2)
+local gameCanvas = love.graphics.newCanvas(480, 320)
+local uiCanvas = love.graphics.newCanvas(480*2, 320*2)
 local canvasScale = 1
 
+require("map")
 
 function love.load()
+    map:load()
     saul = love.graphics.newImage("assets/images/Goodman.png")
 end
 
 function love.update(dt)
-    
+    map:update(dt)
 end
 
 function love.draw()
@@ -17,11 +19,11 @@ function love.draw()
         love.graphics.clear()
         -- draw goes here -- 
       
-        love.graphics.draw(saul, 0, 0)
+        map:draw()
         
         -- draw ends here -- 
         love.graphics.setLineWidth(1)
-        love.graphics.rectangle("line", 0, 0, 480, 360) --border
+        love.graphics.rectangle("line", 0, 0, 480, 320) --border
     love.graphics.setCanvas(uiCanvas)
         love.graphics.clear()
         -- ui goes here -- 
@@ -30,7 +32,7 @@ function love.draw()
 
         -- ui ends here -- 
         love.graphics.setLineWidth(1)
-        love.graphics.rectangle("line", 0, 0, 480*2, 360*2) --border
+        love.graphics.rectangle("line", 0, 0, 480*2, 320*2) --border
     love.graphics.setCanvas()
 
 
